@@ -1,0 +1,30 @@
+/* pages/employ/employ.wxss */
+.textarea{
+    border: 1rpx solid #e0e0e0;
+}
+
+.submit{
+    width: 750rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+.position{
+    width: 750rpx;
+}
+
+.image{
+    width: 750rpx;
+    padding: 30rpx 80rpx 30rpx 80rpx;
+}
+
+.btn{
+    background-color: #7f7fd6;
+    width: 70%;
+    color: white;
+    font-size: 35rpx;
+    font-weight: 500;
+}
+
+.active{
+    background-color: #5f5fc9;
+}

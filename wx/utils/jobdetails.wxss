@@ -1,0 +1,79 @@
+
+.result{
+    display: flex;
+    background-color: white;
+}
+.result .item{
+    flex:1;
+    flex-direction: column;
+    border: 1rpx solid #e0e0e0;
+    box-shadow:0 0 5rpx #e0e0e0;
+    padding:40rpx 20rpx;
+    background-color: white;
+}
+.result .item .msgtop{
+    font-size: 40rpx;
+    font-weight: 600;
+}
+.result .item .salary{
+    font-size: 30rpx;
+    color:orange;
+    float:right;
+}
+.result .item .address{
+    padding-left:20rpx;
+    font-size: 25rpx;
+    color:grey;
+}
+.result .item .date{
+    font-size: 25rpx;
+    color:grey;
+    float:right
+}
+.result .item .company{
+    font-size: 30rpx;
+}
+
+
+
+.header .jump-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 30rpx 40rpx 30rpx 40rpx;
+    background-color: #fff;
+    
+}
+
+.header .jump-wrap .jump-btn {
+    text-align: center;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header .jump-wrap .jump-btn:after {
+    width: 0;
+    height: 0;
+    border: none;
+}
+
+.header .jump-wrap .jump-btn .img-box {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 0 auto;
+}
+
+.header .jump-wrap .jump-btn .img-box>image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header .jump-wrap .jump-btn>text {
+    display: block;
+    margin-top: 18rpx;
+    color: #666666;
+    font-size: 24rpx;
+    line-height: normal;
+}

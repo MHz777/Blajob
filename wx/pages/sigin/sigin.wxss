@@ -1,0 +1,29 @@
+.btn{
+    width: 600rpx;
+    margin: 0 auto;
+    margin-bottom: 40rpx;
+    margin-top: 30rpx;
+}
+.header .logintxt{
+    display: flex;
+    margin-top: 30rpx;
+}
+
+.header .logintxt .usertxt{
+    flex:2;
+    font-size: 40rpx;
+    font-weight: 600;
+    margin: 30rpx 30rpx 0 10rpx;
+    padding-left: 50rpx;
+    
+}
+.header .logintxt .image{
+    flex:1;
+}
+
+.footer{
+    width: 600rpx;
+    margin: 0 auto;
+    margin-bottom: 40rpx;
+    margin-top: 30rpx;
+}

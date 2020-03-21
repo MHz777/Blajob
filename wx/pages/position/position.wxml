@@ -1,0 +1,12 @@
+   <view class="map_container">
+        <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+    </view>
+    <view class="rgc_info">
+
+        <text>请确认您的地理位置：</text>
+        <text>{{city}}</text>
+        <view class="btn">
+            <button bindtap = "submit">确认</button>  
+        </view>
+                <text style="font-size:25rpx;">温馨提示：如果获取不到定位请打开菜单栏手机定位，重新进入本页面</text>        
+    </view>

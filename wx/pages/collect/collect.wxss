@@ -1,0 +1,24 @@
+@import'../../utils/jobdetails.wxss';
+
+.nothing{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nothing .content{
+    margin-top: 500rpx;
+    display: flex;
+
+}
+.nothing image{
+
+    margin:10rpx;
+    width: 50rpx;
+    height: 50rpx;
+
+}
+.nothing text{
+    padding-top: 15rpx;
+}
+

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-grid": "../../assets/dist/grid/index",
+  "van-grid-item": "../../assets/dist/grid-item/index",
+  "van-search": "../../assets/dist/search/index",
+  "van-tree-select": "/assets/dist/tree-select/index"
+  }
+}

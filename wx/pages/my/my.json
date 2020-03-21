@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-overlay": "../../assets/dist/overlay/index",
+    "van-button": "../../assets/dist/button/index"
+  }
+}

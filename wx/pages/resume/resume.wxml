@@ -1,0 +1,61 @@
+<view class="resume">
+    <view class="headtitle">
+        <text style="font-size:50rpx;">填写基本信息</text>
+    </view>
+    <view class="mine">
+    <text style="font-size:30rpx;">用户信息： </text>
+        <text style="font-size:30rpx;">{{username}}</text>
+        <view class="img">
+            <van-image width="150rpx" height="150rpx" round="true" src="{{avatarUrl}}" />
+        </view>
+    </view>
+  
+    <view>
+        <van-cell-group>
+
+         <van-field
+    value="{{ gender==1 ? '男':'女' }}"
+    clearable
+    label="性别："
+    
+    placeholder="请输入性别"
+    
+  />
+         <van-field
+    value="{{ age }}"
+    clearable
+    label="年龄"
+    
+    placeholder="请输入年龄"
+    
+  />
+  <van-field
+    value="{{ college }}"
+    clearable
+    label="学校："
+    
+    placeholder="请输入学校"
+    
+  />
+
+  <van-field
+    value="{{ garde }}"
+    label="年级"
+    clearable
+    placeholder="请输入年级（大几）"
+
+  />
+
+    <van-field
+    value="{{ professional }}"
+    label="专业"
+    clearable
+    placeholder="请输入专业名称"
+ 
+  />
+</van-cell-group>
+    </view>
+    <view class="subBtn">
+        <button class="btn" hover-class="active" bindtap="saveHandle">保存</button>
+    </view>
+</view>

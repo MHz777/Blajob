@@ -1,0 +1,27 @@
+<view class="msgPage">
+    <view class="title">
+         <text>兼职： {{titletxt}}  公司：{{company}}</text>   
+    </view>
+    <view class="msgContent">
+        <view class="msgShow" wx:for="{{msglist}}">
+
+            <view class="txt">
+                 <text>{{item.val}}</text>
+            </view>
+            <van-image
+            width="50"
+            height="50"
+            round
+            src="{{item.avatarUrl}}"
+            />
+        </view>
+    </view>
+    <view class="msgbottom">
+        <input type="text" placeholder="请输入留言信息"  bindinput="saveInpt"/>
+        <view class="sendbtn" >
+             <button size="mini" bindtap = "sendMsg">发送</button> 
+        </view>
+    </view>   
+    
+ 
+</view>

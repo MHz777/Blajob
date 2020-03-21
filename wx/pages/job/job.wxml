@@ -1,0 +1,51 @@
+<view class="jobPage">
+  <view class="headerpage">
+    <view class="space"></view>
+    <view class="search">
+      <input type="text" catchtap = "search" placeholder="请输入你想要搜索的兼职" placeholder-class="placeholdersty"></input>
+      <image catchtap = "search" src="../../assets/img/_search.png"></image>
+      
+    </view>
+  </view>
+  <view class="header">
+         <view class="jump-wrap">
+            <view catchtap = "navagete" class="jump-btn" >
+                <view class="img-box">
+                    <image src="https://i1.fuimg.com/712483/2882f920befcb1fa.png"></image>
+                </view>
+                <text>获取定位</text>
+            </view>
+            <navigator  class="jump-btn" hoverClass="none" url="../search/search">
+                <view class="img-box">
+                    <image src="https://i1.fuimg.com/712483/7557c2c4379f4c6e.png"></image>
+                </view>
+                <text>职位分类</text>
+            </navigator>
+            <navigator  class="jump-btn" hoverClass="none" url="../employ/employ">
+                <view class="img-box">
+                    <image src="https://i1.fuimg.com/712483/8b30c67a47b097b4.png"></image>
+                </view>
+                <text>我要招人</text>
+            </navigator>
+        </view>
+        <view class="iwanna">
+          <text>推荐职位</text>
+          <text class="city">{{city}}</text>
+        </view>
+  </view>
+  <scroll-view class="result">
+    <block wx:for="{{jobList}}" wx:key="id">
+    <navigator class="item"   url="../details/details" >
+      <view class="msgtop">
+        <text class="jobname" decode="{{true}}">{{item.jobname}}</text>
+        <text class="salary" decode="{{true}}">{{item.salary}}</text>
+      </view>
+      <view class="msgbtm">
+        <text class="address" decode="{{true}}">{{item.address}}</text>
+        <text class="date">{{item.date}}</text>
+      </view>
+      <text class="company">{{item.address}}</text>
+    </navigator>
+    </block>
+  </scroll-view>
+</view>

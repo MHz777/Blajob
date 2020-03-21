@@ -1,0 +1,66 @@
+@import'../../utils/jobdetails.wxss';
+page{
+    background-color: rgb(236, 231, 231);
+}
+.jobPage{
+    display: flex;
+    flex-direction: column;
+}
+.headerpage{
+    display: flex;
+    flex-direction: column;
+    height: 340rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    overflow: hidden;
+    background-image: url("http://i1.fuimg.com/712483/9aee644c90b695dd.jpg");
+    
+    background-size: cover;
+    padding-bottom: 20rpx;
+}
+.space{
+    flex:1;
+}
+.search{
+
+    display: flex;
+    margin-top: 10rpx;
+    border-top: #e0e0e0;
+    border-radius: 20rpx;
+    border: 1rpx solid #e0e0e0;
+    box-shadow: 0 0 8rpx #e0e0e0;
+    align-items: center;
+    margin: 20rpx;
+    background-color: white;
+
+}
+.placeholdersty{
+    font-size: 30rpx;
+    padding-left: 10rpx;
+}
+.search input{
+    flex: 1;
+    margin-left: 40rpx;
+}
+.search image{
+    
+    padding-right: 30rpx;
+    padding-top: 10rpx;
+    padding: 15rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+.iwanna{
+    border-top: 1rpx solid #e0e0e0;
+    padding: 30rpx 20rpx;
+    padding-left: 0;
+    background-color: white;
+}
+.iwanna text{
+    padding:20rpx;
+    font-size: 35rpx;
+    font-weight: 600;
+   
+}
+.city{
+    width: 200rpx;
+}

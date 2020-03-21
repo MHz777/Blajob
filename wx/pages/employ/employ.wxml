@@ -1,0 +1,24 @@
+<view class="employPage" hover-class="none">
+  <van-notice-bar wrapable scrollable="false" text="请您认真填写真实信息，如信息虚假不符，相关法律责任自负！" />
+  <van-cell-group>
+    <van-field value="{{ jobname }}" type="text" clearable label="职位名称" placeholder="请输入职位名称" required border="{{ true }}" bindinput="jobnameInput" />
+    <van-field value="{{ salary }}" type="text" clearable label="工资" placeholder="请输入工资" required border="{{ true }}" bindinput="salaryInput" />
+    <van-field value="{{ address }}" type="text" clearable label="工作地点" placeholder="请输入工作地点" required border="{{ true }}" bindinput="addressInput" />
+    <van-field value="{{ date }}" type="text" clearable label="发布日期" placeholder="格式：年-月-日   例：2020-02-02" required border="{{ true }}" bindinput="dateInput" />
+    <van-field value="{{ company }}" type="text" clearable label="用人单位名称" placeholder="请输入用人单位名称" required border="{{ true }}" bindinput="companyInput" />
+    <van-field value="{{ phonenumber }}" type="text" clearable label="联系方式" placeholder="请输入联系方式" required border="{{ true }}" bindinput="phoneInput" />
+  </van-cell-group>
+  <text style="padding:40rpx 10rpx;">  职位详情：</text>
+  <view class="textarea">
+    
+    <textarea name="companydetail" placeholder="请输入工作相关信息" cols="30" rows="10" bindinput="jobDetailInput">{{jobDetail}} </textarea>
+  </view>
+  <view class="position"></view>
+  <view class="submit">
+    <view class="image" bindtap = "navigate">
+      <image src="https://i1.fuimg.com/712483/732a255f09167712.png" style="width:50rpx;height:50rpx"></image>
+      <text>点击获取定位    {{city}}</text>
+    </view>
+    <button class="btn" hover-class="active" bindtap="publishHandle">提交</button>
+  </view>
+</view>

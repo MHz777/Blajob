@@ -1,0 +1,37 @@
+<view class="myPage">
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="block" catch:tap="noop" >
+
+        <view class="blank" ><image class="close" src="https://i2.tiimg.com/712483/d64e51ef021981b6.png" bindtap = "onClickHide"></image></view>
+         <text>     注册过程中需要获取您的微信头像和昵称，
+                  请点击授权~</text>
+        <van-button  wx:if="{{canIUse}}" class="vanbtn" type="info" size="large" round bindtap = "signin">我要注册登陆</van-button>
+        <view wx:else>请升级微信版本</view>
+    </view>
+  </view>
+</van-overlay>
+    <view class="header" bindtap="onClickShow">
+      <view class="logintxt">
+        <text class="">
+            {{username}}
+        </text>
+        <view class="image">
+        <image class="" src="{{avatarUrl}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <navigator class="myResume" url="../resume/resume"><image class="tabicon" src="../../assets/img/tab1.png"></image><text>个人信息</text>
+      <image class="resizeicon" src="../../assets/img/resizeApi.png"></image></navigator>
+      <navigator class="employer" url="../employ/employ"><image class="tabicon" src="../../assets/img/tab2.png"></image><text>我要招聘</text>
+      <image class="resizeicon" src="../../assets/img/resizeApi.png"></image></navigator>
+      <navigator class="mycollect" url="/pages/collect/collect"><image class="tabicon" src="/assets/img/shoucang_s.png"></image><text>我发布的</text>
+      <image class="resizeicon" src="../../assets/img/resizeApi.png"></image></navigator>
+      <navigator class="feedBack" url="../feedback/feedback"><image class="tabicon" src="../../assets/img/tip.png"></image><text>问题反馈</text>
+      <image class="resizeicon" src="../../assets/img/resizeApi.png"></image></navigator>
+    </view>
+    <view class="btnbox">
+        <button class="btn" hover-class="active" bindtap="exitHandle">退出登录</button>
+    </view>
+</view>

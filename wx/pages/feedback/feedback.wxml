@@ -1,0 +1,8 @@
+<view class="feedback">
+    <view class="txta">
+        <textarea name="txta" id="txta" cols="40" rows="20" bindblur="onblur"></textarea>
+    </view>
+    <view class="btnbox">
+        <button class="btn" hover-class="active" bindtap="feedHandle">退出登录</button>
+    </view>
+</view>

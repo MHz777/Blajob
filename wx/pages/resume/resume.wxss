@@ -1,0 +1,57 @@
+.resume{
+width: 700rpx;
+margin-left: 25rpx;
+margin-right: 25rpx;
+}
+.headtitle{
+    margin-top: 40rpx;
+    margin-left: 30rpx;
+    margin-bottom: 40rpx;
+}
+.mine{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #e0e0e0;
+}
+.mine text{
+    flex: 1;
+    margin-left: 30rpx;
+}
+.img{
+    margin-right: 40rpx;
+}
+
+.gender{
+    display: flex;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+.age{
+    display: flex;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+.college{
+    height: 300rpx;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #e0e0e0;
+    padding-top: 30rpx;
+    
+}
+.subBtn{
+    padding-top: 50rpx;
+}
+.subBtn .btn{
+    background-color: #7f7fd6;
+    width: 70%;
+    color: white;
+    font-size: 35rpx;
+    font-weight: 500;
+}
+.subBtn .active{
+    background-color: #5f5fc9;
+}

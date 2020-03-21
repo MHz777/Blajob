@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-image": "/assets/dist/image/index"
+  }
+}

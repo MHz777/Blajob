@@ -1,0 +1,38 @@
+<view class="containers">
+<van-notice-bar
+  wrapable
+  scrollable="false"
+  text="凡涉及到工作内容不符，收费、违法信息传播的工作，请您警惕并向有关公安部门举报。"
+/>
+  <view class="header">
+    <van-panel title="{{jobname}}" desc="{{date}}" status="{{salary}}">
+      <!-- <view></view> -->
+      <scroll-view>
+        <view>
+          <text style="font-size:25rpx;font-weight:600rpx ;">公司名称：</text>
+          {{company}}
+        </view>
+        <view>
+          <text style="font-size:25rpx;font-weight:600rpx ;">工作地点：</text>
+          {{address}}
+        </view>
+        <view>
+          <text style="font-size:25rpx;font-weight:600rpx ;">联系方式：</text>
+          {{phonenumber}}
+        </view>
+        <view>
+          <text style="font-size:25rpx;font-weight:600rpx ;">工作信息介绍：</text>
+          <view class="">
+            <text class="">{{jobContent}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </van-panel>
+  </view>
+  <view class="footer">
+  <view class="collect">
+    <!-- <image class="" src="/assets/img/shoucang.png" ></image><text></text> -->
+  </view>
+    <van-button class="vanbtn" round type="info" bindtap="navigateHandle">发送消息</van-button>
+  </view>
+</view>

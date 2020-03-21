@@ -1,0 +1,82 @@
+.msgPage{
+    width: 100%;
+    height: 2000rpx;
+    background-color: rgb(250, 243, 243);
+}
+.msgPage{
+    display: flex;
+    flex-direction: column;
+}
+.msgPage .title{
+    height: 100rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #e0e0e0;
+}
+.msgPage .title text{
+    font-size: 40rpx;
+    line-height: 100rpx;
+    padding-left: 50rpx;
+}
+.msgPage .msgbottom{
+    border-top: 1rpx solid #e0e0e0;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    margin: 0 20rpx 20rpx 20rpx;
+    width: 100%;
+    padding-top: 20rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    
+}
+
+
+.msgPage .msgbottom input{
+    flex:1;
+    height: 70rpx;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 10rpx;
+    padding-right: 10rpx;
+    padding-left: 10rpx;
+    margin-right: 20rpx;
+   
+}
+.msgbottom .sendbtn{
+    width: 20%;
+}
+.msgbottom .sendbtn button{
+    height: 70rpx;
+   
+}
+
+.msgContent{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.msgContent .msgShow{
+    padding-top: 30rpx;
+    padding-left:100rpx ;
+    flex: 1;
+    width: 600rpx;
+    
+    display: flex;
+
+}
+
+.msgContent .msgShow .txt{
+    margin-left: 30prx;
+   border: 1rpx solid #e0e0e0;
+   background-color: #7f7fd5;
+   width: 100%;
+   border-radius: 20rpx;
+   height: auto;
+   overflow: scroll;
+   box-shadow: 0 0 5rpx #e0e0e0;
+}
+
+.msgContent .msgShow .txt text{
+    padding: 5rpx;
+    width: auto;
+}

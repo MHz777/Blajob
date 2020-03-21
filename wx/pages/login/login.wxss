@@ -1,0 +1,9 @@
+.footer{
+    width: 600rpx;
+    margin: 0 auto;
+    margin-bottom: 40rpx;
+    margin-top: 30rpx;
+}
+.loginPage{
+    margin-top: 30rpx;
+}

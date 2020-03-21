@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-panel": "../../assets/dist/panel/index",
+    "van-button": "/assets/dist/button/index",
+    "van-notice-bar": "/assets/dist/notice-bar/index"
+  }
+}

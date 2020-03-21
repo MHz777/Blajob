@@ -1,0 +1,51 @@
+.header{
+  padding: 20rpx;
+}
+.containers{
+  display: flex;
+  flex-direction: column;
+}
+.containers .header{
+  
+  flex: 1;
+  height:800rpx
+}
+
+.footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  padding: 30rpx;
+  display: flex;
+  padding-right: 30rpx;
+  
+}
+.footer view{
+  float: left;
+  flex: 1;
+  
+
+
+}
+.footer image{
+  height: 40rpx;
+  width: 40rpx;
+  align-self: center;
+  
+
+}
+.footer .vanbtn{
+  float: right;
+  padding-right: 30rpx;
+}
+
+.collect{
+  display: flex;
+}
+.collect text{
+  flex: 1;
+  font-size: 30rpx;
+  color: grey;
+  padding-left: 20rpx;
+}

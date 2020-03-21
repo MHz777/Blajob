@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-image": "/assets/dist/image/index",
+    "van-field": "/assets/dist/field/index"
+  }
+}

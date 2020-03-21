@@ -1,0 +1,124 @@
+.myPage{
+  width: 750rpx;
+}
+.myPage .header{
+  background-color: #7f7fd5;
+  width: 100%;
+  height: 300rpx;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.content navigator{
+  margin-top: 25rpx;
+  display: flex;
+  
+  padding-bottom: 25rpx;
+  align-items: center;
+}
+
+.content navigator text{
+  flex: 1;
+  padding-left: 30rpx;
+  color: rgb(75, 72, 72);
+}
+.tabicon{
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 30rpx;
+}
+.resizeicon{
+  padding-top: 10rpx;
+  width: 40rpx;
+  height: 30rpx;
+  padding-right: 30rpx;
+}
+.logintxt{
+  display: flex;
+  padding-top: 60rpx;
+  padding-left: 70rpx;
+  height: inherit;
+
+}
+.logintxt text{
+  flex: 1;
+  font-size: 40rpx;
+  color: white;
+  font-weight: 700;
+
+}
+.logintxt .image {
+  border-radius: 60%;
+  overflow: hidden;
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 60rpx;
+}
+.logintxt .image image{
+  
+  height: 200rpx;
+  width: 200rpx;
+
+  margin-right: 60rpx;
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  width: 550rpx;
+  height:400rpx;
+  background-color: #fff;
+  border-radius: 15rpx 15rpx 15rpx 15rpx;
+}
+.block .blank{
+  flex: 1;
+}
+.block text{
+  flex: 1;
+  padding-left: 40rpx;
+  color: grey;
+  font-size: 25rpx;
+}
+.block .vanbtn{
+  flex: 2;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-weight: 500;
+  padding-bottom: 25rpx;
+}
+.block .blank .close{
+  float: right;
+  width: 60rpx;
+  height: 60rpx;
+}
+.btnimg{
+  height: 40rpx;
+  width: 45rpx;
+ justify-content: center;
+ align-items: center;
+ padding-right: 10rpx;
+ padding-top: 10rpx;
+
+}
+.btnbox{
+  margin-top: 100rpx;
+}
+.btnbox .btn{
+  background-color: #7f7fd6;
+  width: 70%;
+  color: white;
+  font-size: 35rpx;
+  font-weight: 500;
+}
+.btnbox .btn.active{
+  background-color: #5f5fc9;
+}
