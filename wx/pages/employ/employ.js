@@ -8,14 +8,15 @@ Page({
    */
   data: {
     value: '',
-    jobname:"发传单",
-    salary:"100元/天",
-    address:"学校门口",
-    date:"2020-02-02",
-    company:"asdasdasd",
+    jobname:'',
+    salary:'',
+    address:'',
+    date:'',
+    company:'',
     phonenumber:'',
-    jobDetail:"",
-    city:''
+    jobDetail:'',
+    city:'',
+
   },
 
   jobnameInput:function(e){
@@ -56,9 +57,9 @@ Page({
   },
 
   jobDetailInput:function(e){
-    console.log(e.detail);
+    console.log(e.detail.value);
     this.setData({
-      jobDetail:e.detail
+      jobDetail:e.detail.value
     })
 },
 
@@ -74,19 +75,89 @@ Page({
     });
   },
 
+
   //提交按钮
   publishHandle:function(e){
-    // jobname:"发传单",
-    // salary:"100元/天",
-    // address:"学校门口",
-    // date:"2020-02-02",
-    // company:"asdasdasd",
-    // phonenumber:'',
-    // jobDetail:""
-    var that = this;
-      var jobname = that.data.jobname;
-      var salary = that.data.salary;
+      var that = this;
+      var user_id =app.globalData.user_id;
+      var username = app.globalData.username;
+     //发送请求
+      var reqTask = wx.request({
+        url: 'http://localhost/treehole/index.php/Home/Job/publish_job',
+        data: {
+        user_id:user_id,
+        username :username,
+        job_name : that.data.jobname,
+        salary : that.data.salary,
+        address : that.data.address,
+        date : that.data.date,
+        company : that.data.company,
+        phonenumber : that.data.phonenumber,
+        jobDetail : that.data.jobDetail,
+        city : that.data.city
+        },
+        header: {'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (result)=>{
+            console.log(result.data);
+            if(result.data.error_code ==0){
+                wx.showModal({
+                  title: '提示',
+                  content: '插入成功',
+                  showCancel: false,
+                  cancelText: '取消',
+                  cancelColor: '#000000',
+                  confirmText: '确定',
+                  confirmColor: '#3CC51F',
+                  success: (result) => {
+                    if(result.confirm){
+                      
+                    }
+                  },
+                  fail: ()=>{},
+                  complete: ()=>{}
+                });
 
+                setTimeout(() => {
+                    wx.switchTab({
+                      url: '/pages/job/job',
+                      success: (result)=>{
+                        
+                      },
+                      fail: ()=>{},
+                      complete: ()=>{}
+                    });
+                }, 1500);
+            }
+            
+
+
+        },
+        fail: ()=>{
+          wx.showModal({
+            title: '提示',
+            content: '连接失败，请检查您的网络',
+            showCancel: false,
+            cancelText: '取消',
+            cancelColor: '#000000',
+            confirmText: '确定',
+            confirmColor: '#3CC51F',
+            success: (result) => {
+              if(result.confirm){
+                
+              }
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          });
+        },
+        complete: ()=>{}
+      });
+
+
+     
   },
 
 
@@ -101,7 +172,7 @@ Page({
    */
   
   onLoad: function (options) {
-
+   
   },
 
   /**
@@ -120,6 +191,8 @@ Page({
       this.setData({
         city:city
       })
+
+      
   },
 
   /**

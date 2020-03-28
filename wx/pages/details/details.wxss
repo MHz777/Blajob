@@ -49,3 +49,8 @@
   color: grey;
   padding-left: 20rpx;
 }
+
+.srlview view{
+  padding: 15rpx;
+  
+}

@@ -35,16 +35,16 @@
   </view>
   <scroll-view class="result">
     <block wx:for="{{jobList}}" wx:key="id">
-    <navigator class="item"   url="../details/details" >
+    <navigator class="item"   url="../details/details?index={{index}}" data-index="{{index}}" catchtap = "sendDetail">
       <view class="msgtop">
-        <text class="jobname" decode="{{true}}">{{item.jobname}}</text>
+        <text class="jobname" decode="{{true}}">{{item.job_name}}</text>
         <text class="salary" decode="{{true}}">{{item.salary}}</text>
       </view>
       <view class="msgbtm">
         <text class="address" decode="{{true}}">{{item.address}}</text>
         <text class="date">{{item.date}}</text>
       </view>
-      <text class="company">{{item.address}}</text>
+      <text class="company">{{item.company}}</text>
     </navigator>
     </block>
   </scroll-view>

@@ -3,6 +3,6 @@
         <textarea name="txta" id="txta" cols="40" rows="20" bindblur="onblur"></textarea>
     </view>
     <view class="btnbox">
-        <button class="btn" hover-class="active" bindtap="feedHandle">退出登录</button>
+        <button class="btn" hover-class="active" bindtap="feedHandle">提交</button>
     </view>
 </view>

@@ -1,18 +1,19 @@
-<view class="collect" wx:if="{{collectNum}}">
-    <block class="collections" wx:for="{{}}">
-        <navigator class="item" url="../details/details">
+<scroll-view class="result" wx:if="{{myColection}}">
+    <block class="collections" wx:for="{{myColection}}" wx:key="index">
+        <navigator class="item" style="padding-bottom:60rpx;" url="../details/details">
             <view class="msgtop">
-                <text class="jobname" decode="{{true}}">{{item.jobname}}</text>
+                <text class="jobname" decode="{{true}}">{{item.job_name}}</text>
                 <text class="salary" decode="{{true}}">{{item.salary}}</text>
             </view>
             <view class="msgbtm">
                 <text class="address" decode="{{true}}">{{item.address}}</text>
                 <text class="date">{{item.date}}</text>
             </view>
-            <text class="company">{{item.address}}</text>
+            <text class="company">{{item.company}}</text>
+            <van-button class="vanbtn" plain round type="info" catchtap="deleteHandle" data-index="{{index}}">删除</van-button>
         </navigator>
     </block>
-</view>
+</scroll-view>
 
 
 <view class="nothing" wx:if="{{collectNum==0}}">

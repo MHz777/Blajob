@@ -34,11 +34,10 @@ Page({
         //跳转到job页面
         wx.navigateBack({
             delta: 1,
-            success:(res)=>{
-                console.log(1);
+            success: (result)=>{
                 
             },
-            fail:()=>{
+            fail: ()=>{
                 wx.switchTab({
                     url: '/pages/job/job',
                     success: (result)=>{
@@ -47,13 +46,10 @@ Page({
                     fail: ()=>{},
                     complete: ()=>{}
                 });
-                
             },
-            complete:()=>{
-
-                
-            }
+            complete: ()=>{}
         });
+        
         
      },
      
@@ -71,7 +67,20 @@ Page({
             ak: 'yBkcFGYgH5Dni4PhbYDsKo8bbRVFfdMa' 
         }); 
         var fail = function(data) { 
-            console.log(data) 
+            console.log(data);
+            
+            wx.showToast({
+                title: '请点击右上角设置赋予位置权限哦',
+                icon: 'none',
+                image: '',
+                duration: 1500,
+                mask: false,
+                success: (result)=>{
+                  
+                },
+                fail: ()=>{},
+                complete: ()=>{}
+              });  
         }; 
         var success = function(data) {
 

@@ -35,9 +35,11 @@ App({
   },
   globalData: {
     userInfo: null,
+    user_id:'',
     City:'',
     username:'',
     avatarUrl:'',
-    gender:''
+    gender:'',
+    jobList:[]
   }
 })

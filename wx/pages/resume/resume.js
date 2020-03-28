@@ -11,37 +11,198 @@ Page({
     username:'',
     gender:'',
     professional:'',
-    garde:'',
+    grade:'',
     college:'',
     age:''
   },
-  saveHandle:function (e) { 
-    wx.navigateBack({
-      delta: 1
+
+  //提交按钮事件
+  saveHandle:function (e) {
+    if(!app.globalData.user_id){
+      wx.showToast({
+        title: '请您登陆',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
+ 
+    else if(!this.data.username){
+      wx.showToast({
+        title: '请您登陆',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
+    else if(!this.data.gender){
+        wx.showToast({
+          title: '请输入性别',
+          icon: 'none',
+          image: '',
+          duration: 1500,
+          mask: false,
+          success: (result)=>{
+            
+          },
+          fail: ()=>{},
+          complete: ()=>{}
+        });
+    }
+    else if(!this.data.age){
+      wx.showToast({
+        title: '请输入年龄',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
+    else if(!this.data.college){
+      wx.showToast({
+        title: '请输入学校',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+  }
+    else if(!this.data.grade){
+      wx.showToast({
+        title: '请输入年级',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+  }
+  else if(!this.data.professional){
+    wx.showToast({
+      title: '请输入专业',
+      icon: 'none',
+      image: '',
+      duration: 1500,
+      mask: false,
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
     });
+  }
+  else{ 
+        var reqTask = wx.request({
+          url: 'http://localhost/treehole/index.php/Home/User/user_info',
+          data: {
+            user_id:app.globalData.user_id,
+            username:this.data.username,
+            age:this.data.age,
+            gender:this.data.gender,
+            grade:this.data.grade,
+            college:this.data.college,
+            professional:this.data.professional
+          },
+          header: {'content-type':'application/x-www-form-urlencoded'},
+          method: 'POST',
+          dataType: 'json',
+          responseType: 'text',
+          success: (result)=>{
+              console.log(result.data.data);
+
+
+              if(result.data.error_code ==0){
+                    wx.showToast({
+                      title: '保存成功！',
+                      icon: 'none',
+                      image: '',
+                      duration: 1500,
+                      mask: false,
+                      success: (result)=>{
+                        
+                      },
+                      fail: ()=>{},
+                      complete: ()=>{}
+                    });
+              }
+          },
+          fail: ()=>{},
+          complete: ()=>{}
+        });
+
+        //延时跳转
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          });
+        }, 1500);
+     
+  }
+
+   },
+   
+   genderInput:function(e){
+        this.setData({
+          gender:e.detail
+        })
+   },
+   ageInput:function(e){
+        this.setData({
+          age:e.detail
+        })
+   },
+   collegeInput:function(e){
+        this.setData({
+          college:e.detail
+        })
+   },
+   gradeInput:function(e){
+        this.setData({
+          grade:e.detail
+        })
+   },
+   professionalInput:function(e){
+        this.setData({
+          professional:e.detail
+        })
    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       
-      //调用API获取用户信息
-      // wx.getUserInfo({
- 
-      //   success: (result)=>{
-      //       console.log(result);
-      //       var avatarUrl = result.userInfo.avatarUrl;
-      //       var username = result.userInfo.nickName;
-      //       var gender = result.userInfo.gender;
-      //       this.setData({
-      //         avatarUrl:avatarUrl,
-      //         username:username,
-      //         gender:gender
-      //       })
-      //   },
-      //   fail: ()=>{},
-      //   complete: ()=>{}
-      // });
+      this.setData({
+        username:app.globalData.username,
+        avatarUrl: app.globalData.avatarUrl,
+        gender:app.globalData.gender
+      })
+
   },
 
   /**
@@ -55,7 +216,32 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      var that = this;
+      var reqTask = wx.request({
+        url: 'http://localhost/treehole/index.php/Home/Lauch/saved_info',
+        data: {
+          user_id:app.globalData.user_id,
+          username:app.globalData.username
+        },
+        header: {'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (result)=>{
+              console.log(result);
+              that.setData({
+                gender:result.data.gender,
+                age:result.data.age,
+                college:result.data.college,
+                grade:result.data.grade,
+                professional:result.data.professional,
+                
+                
+              })
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
   },
 
   /**

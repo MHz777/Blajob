@@ -9,9 +9,8 @@
     <van-field value="{{ phonenumber }}" type="text" clearable label="联系方式" placeholder="请输入联系方式" required border="{{ true }}" bindinput="phoneInput" />
   </van-cell-group>
   <text style="padding:40rpx 10rpx;">  职位详情：</text>
-  <view class="textarea">
-    
-    <textarea name="companydetail" placeholder="请输入工作相关信息" cols="30" rows="10" bindinput="jobDetailInput">{{jobDetail}} </textarea>
+  <view class="textarea">    
+    <textarea name="companydetail" placeholder="请输入工作相关信息" cols="30" rows="10" bindinput="jobDetailInput"></textarea>
   </view>
   <view class="position"></view>
   <view class="submit">

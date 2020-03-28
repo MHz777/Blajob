@@ -21,7 +21,7 @@
         </van-cell-group>
         <view class="footer">
             <navigator style="font-size:25rpx;padding-bottom:20rpx;" url="../login/login" >已有账号？点击登陆</navigator>
-            <van-button type="primary" round size="large" catch:tap = "submitHandle">注册</van-button>
+            <van-button type="primary" round size="large" catch:tap = "siginHandle">注册</van-button>
         </view>
     </view>
 </view>

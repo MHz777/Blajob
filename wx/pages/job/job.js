@@ -8,36 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-      city:"123",
+      city:"",
       jobList:[
-        {
-          id:0,
-          jobname:"发传单",
-          salary:"100元/天",
-          address:"学校门口",
-          date:"2020-02-02",
-          company:"asdasdasd"
-        },
-        { 
-          id:1,
-          jobname:"发asda传单",
-          salary:"100元/天",
-          address:"学校门口",
-          date:"2020-02-02",
-          company:"asdasdasd"
-        },
-        {
-          id:2,
-          jobname:"qwe",
-          salary:"100元/天",
-          address:"学校门口",
-          date:"2020-02-02",
-          company:"asdasdasd"
-        },
+       
         
       ],
 
-      
+
   },
 
 search:function (e) { 
@@ -56,62 +33,70 @@ search:function (e) {
      complete: ()=>{}
    });
   },
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      var that = this;
+      that.setData({
+        city:app.globalData.city
+      });
 
-  //   var that = this;
-
-  //   wx.getLocation({
-  //     type: 'wgs84',
-  //     altitude:true,
-  //     success (res) {
-  //       console.log("wx.getlocation");
-  //       console.log(res);
-  //       if(res&&res.latitude && res.longitude)
-  //       {
-  //           var latitude = res.latitude;
-  //           var longitude = res.longitude;
-  //           that.loadCity(longitude,latitude)
-  //       }
-  //       else{
-  //         that.setData({
-  //             city:"获取失败"
-  //         })
-  //       }
-  //     }
-  //    })
-     
-  // },
-
-  // loadCity:function (longitude,latitude) { 
-  //     var that = this;
-  //     wx.request({
-  //       url: 'https://api.map.baidu.com/geocoder/v2/?ak=yBkcFGYgH5Dni4PhbYDsKo8bbRVFfdMa&location=' + latitude + ',' + longitude + '&output=json',
-  //       data: {},
-  //       header: {'content-type':'application/json'},
-  //       success: (result)=>{
-          
-  //         console.log(result);
-          
-  //         if(result && result.data){
-  //             var city = result.data.result.addressComponent.city;
-  //             console.log(result);
-
-  //             that.setData({
-  //               city:city.indexOf('市') >-1?city.substr(0,city.indexOf('市')):city
-  //             });
-  //         }
-  //         else{
-  //           that.setData({
-  //             city:"获取失败"
-  //           })
-  //         }
-  //       },
-  //       fail: ()=>{},
-  //       complete: ()=>{}
-  //     });
+      // if(!that.data.city){
+      
+        var reqTask = wx.request({
+          url: 'https://invisibles.top/index.php/Home/Job/get_alljob',
+          data: {},
+          header: {'content-type':'application/x-www-form-urlencoded'},
+          method: 'POST',
+          dataType: 'json',
+          responseType: 'text',
+          success: (result)=>{
+            //console.log(result.data.data);
+            var jobList = result.data.data;
+            that.setData({
+              jobList:jobList
+            })
+          },
+          fail: ()=>{
+            wx.showToast({
+              title: '列表获取失败',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result)=>{
+                
+              },
+              fail: ()=>{},
+              complete: ()=>{}
+            });  
+          },
+          complete: ()=>{}
+        });
+      // }
+      // else{
+      //   var reqTask = wx.request({
+      //     url: 'http://localhost/treehole/index.php/Home/Job/city',
+      //     data: {
+      //       city:that.data.city
+      //     },
+      //     header: {'content-type':'application/x-www-form-urlencoded'},
+      //     method: 'POST',
+      //     dataType: 'json',
+      //     responseType: 'text',
+      //     success: (result)=>{
+      //       console.log(result.data.data);
+            
+      //     },
+      //     fail: ()=>{},
+      //     complete: ()=>{}
+      //   });
+      // }
+      
    },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -124,13 +109,74 @@ search:function (e) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
     var city = app.globalData.City;
-    console.log(city);
-    
-    this.setData({
+    //console.log(city);
+    that.setData({
       city:city
     })
     console.log(app.globalData);
+
+
+    if(!that.data.city){
+      
+      var reqTask = wx.request({
+        url: 'https://invisibles.top/index.php/Home/Job/get_alljob',
+        data: {
+
+        },
+        header: {'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (result)=>{
+          console.log(result.data.data);
+          var jobList = result.data.data;
+          app.globalData.jobList = jobList;
+          
+          that.setData({
+            jobList:jobList
+          })
+        },
+        fail: ()=>{
+          wx.showToast({
+            title: '列表获取失败',
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (result)=>{
+              
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          });  
+        },
+        complete: ()=>{}
+      });
+    }
+    else{
+      var reqTask = wx.request({
+        url: 'https://invisibles.top/index.php/Home/Job/city',
+        data: {
+          city:that.data.city
+        },
+        header: {'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (result)=>{
+          console.log(result.data.data);
+          var jobList=[];
+          jobList = result.data.data;
+          that.setData({
+            jobList:jobList
+          })
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+    }
   },
 
   /**

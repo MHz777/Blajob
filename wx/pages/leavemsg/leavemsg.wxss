@@ -59,13 +59,18 @@
     padding-top: 30rpx;
     padding-left:100rpx ;
     flex: 1;
-    width: 600rpx;
+    width: 750rpx;
     
     display: flex;
-
+    flex-direction: column;
 }
-
-.msgContent .msgShow .txt{
+.vanbtn{
+    width: 150rpx;
+  }
+.user{
+    display: flex;
+}
+.user .txt{
     margin-left: 30prx;
    border: 1rpx solid #e0e0e0;
    background-color: #7f7fd5;
@@ -74,9 +79,32 @@
    height: auto;
    overflow: scroll;
    box-shadow: 0 0 5rpx #e0e0e0;
+   width: 500rpx;
+
 }
 
-.msgContent .msgShow .txt text{
+.user .txt text{
+    padding: 5rpx;
+    width: auto;
+}
+
+.boss{
+    display: flex;
+}
+.boss .txt{
+    margin-left: 30prx;
+   border: 1rpx solid #e0e0e0;
+   background-color: #7f7fd5;
+   width: 100%;
+   border-radius: 20rpx;
+   height: auto;
+   overflow: scroll;
+   box-shadow: 0 0 5rpx #e0e0e0;
+   width: 500rpx;
+
+}
+
+.boss .txt text{
     padding: 5rpx;
     width: auto;
 }

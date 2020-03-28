@@ -186,9 +186,77 @@ Page({
     
   },
 
-  onSearch:function (e) { 
+  //输入框绑定搜索事件
+  onSearch:function (e) {
+
+      var that = this;
+      //获取用户输入的值
+      var userVal = e.detail;
+
+      
+      var reqTask = wx.request({
+        url: 'http://localhost/treehole/index.php/Home/Job/search',
+        data: {
+          jobname:userVal
+        },
+        header: { 'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (result)=>{
+          console.log(result.data.data);
+          //将获取到的列表赋值给data
+          var joblist = result.data.data;
+            if(joblist){
+              //如果返回的列表有值，将得到的列表渲染到前端
+              that.setData({
+                joblist: joblist,
+                show:false
+              })
+            }
+            else{
+              //如果没用查询到值，将数组设置为空
+              var joblist = [];
+                that.setData({
+                  joblist: joblist,
+                  show:false
+                })
+
+              wx.showToast({
+                title: '未查询到相关信息哦',
+                icon: 'none',
+                image: '',
+                duration: 1500,
+                mask: false,
+                success: (result)=>{
+                  
+                },
+                fail: ()=>{},
+                complete: ()=>{}
+              });  
+            }
+          
+        },
+        fail: (res)=>{
+          //console.log(res.data);
+          wx.showToast({
+            title: '未查询到相关信息哦',
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (result)=>{
+              
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          }); 
+        },
+        complete: ()=>{}
+      });
+
       this.setData({
-        show:false
+        
       })
    },
 
@@ -204,11 +272,101 @@ Page({
     });
   },
 
-  onClickItem({ detail = {} }) {
-    const activeId = this.data.activeId === detail.id ? null : detail.id;
 
-    this.setData({ activeId });
+  //点击nav下的item的事件{ detail = {} }
+  onClickItem(e) {
+    console.log(e.detail);
+    var that = this;
+    // const activeId = this.data.activeId === detail.id ? null : detail.id;
+    // this.setData({ activeId });
+    
+    var itemVal = e.detail.text;
+      //发送请求
+      var reqTask = wx.request({
+        url: 'http://localhost/treehole/index.php/Home/Job/search',
+        data: {
+          jobname:itemVal
+        },
+        header: { 'content-type':'application/x-www-form-urlencoded'},
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+
+        success: (result)=>{
+          console.log(result.data.data);
+          //将获取到的列表赋值给data
+          var joblist = result.data.data;
+          that.setData({
+            joblist: joblist,
+            show:false
+          })
+
+          if(joblist){
+            //如果返回的列表有值，将得到的列表渲染到前端
+            that.setData({
+              joblist: joblist,
+              show:false
+            })
+          }
+          else{
+            //如果没用查询到值，将数组设置为空，即将之前赋值到页面的数组信息清空
+            var joblist = [];
+              that.setData({
+                joblist: joblist,
+                show:false
+              })
+            
+            //弹出提示框
+            wx.showToast({
+              title: '未查询到相关信息哦',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result)=>{
+                
+              },
+              fail: ()=>{},
+              complete: ()=>{
+                //将隐藏的分类列表显示出来
+                that.setData({
+                  show:true
+                })
+              }
+            });  
+          }
+
+        },
+        fail: (res)=>{
+          //console.log(res.data);
+          wx.showToast({
+            title: '未查询到相关信息哦',
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (result)=>{
+              
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          }); 
+        
+        
+        },
+        complete: ()=>{
+
+         
+        }
+      });
+
+      this.setData({
+        
+      })
   },
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
